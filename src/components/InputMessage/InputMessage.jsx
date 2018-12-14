@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { addMessage } from '../../actions';
 
 class ConnectInputMessage extends React.Component {
@@ -42,3 +43,17 @@ class ConnectInputMessage extends React.Component {
     );
   }
 }
+
+ConnectInputMessage.propTypes = {
+  addMessage: PropTypes.func,
+};
+
+const mapDispatchToProps = dispatch => ({
+  addMessage: (message) => {
+    dispatch(addMessage(message));
+  },
+});
+
+const InputMessage = connect(null, mapDispatchToProps)(ConnectInputMessage);
+
+export default InputMessage;

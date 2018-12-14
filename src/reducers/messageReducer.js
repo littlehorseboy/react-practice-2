@@ -4,8 +4,8 @@ import messages from '../constants/models';
 const messageReducer = (state = messages, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
-      Object.assign(action.paylod, { id: (state.message.length + 1).toString() });
-      return { ...state, message: [...state.message, action.paylod] };
+      Object.assign(action.payload, { id: (state.messages.length + 1).toString() });
+      return { ...state, messages: [...state.messages, action.payload] };
     default:
       return state;
   }
